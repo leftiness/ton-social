@@ -1,0 +1,6 @@
+module.exports = angular.module('modules',
+	[
+		require('./home').name,
+		require('./pages').name,
+	])
+	.controller('MainCtrl', require('./MainController'));
