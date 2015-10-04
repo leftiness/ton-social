@@ -1,8 +1,11 @@
-function PagesCtrl($scope) {
+function PagesCtrl() {
 	'use strict';
-	$scope.childModulesInheritThis = 'This text is inherited from the About page\'s parent scope (PagesCtrl).'; // child modules can inherit this
+
+	var self = this;
+
+	this.childModulesInheritThis = 'This text is inherited from the About page\'s parent scope (PagesCtrl).';
 }
 
-PagesCtrl.$inject = ['$scope'];
+PagesCtrl.$inject = [];
 
 module.exports = PagesCtrl;

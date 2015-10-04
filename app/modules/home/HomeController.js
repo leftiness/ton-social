@@ -1,8 +1,11 @@
-function HomeCtrl($scope) {
+function HomeCtrl() {
 	'use strict';
-	$scope.testVar = 'We are up and running using a required module!';
+
+	var self = this;
+
+	this.testVar = 'We are up and running using a required module!';
 }
 
-HomeCtrl.$inject = ['$scope'];
+HomeCtrl.$inject = [];
 
 module.exports = HomeCtrl;

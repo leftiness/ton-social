@@ -1,8 +1,11 @@
-function AboutCtrl($scope) {
+function AboutCtrl() {
 	'use strict';
-	$scope.aboutVar = 'This is an example of a sub-module.';
+
+	var self = this;
+
+	this.aboutVar = 'This is an example of a sub-module.';
 }
 
-AboutCtrl.$inject = ['$scope'];
+AboutCtrl.$inject = [];
 
 module.exports = AboutCtrl;

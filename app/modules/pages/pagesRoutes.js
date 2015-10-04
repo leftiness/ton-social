@@ -3,10 +3,11 @@ function pageRoutes($stateProvider) {
 
 	var pages = {
 		name: 'pages',
+		parent: 'main',
 		abstract: true,
 		url: '/pages',
 		template: '<div ui-view></div>',
-		controller: 'PagesCtrl'
+		controller: 'PagesCtrl as pages'
 	};
 
 	var about = {

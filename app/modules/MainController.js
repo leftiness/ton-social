@@ -1,12 +1,11 @@
-function MainCtrl($rootScope, $scope) {
+function MainCtrl() {
 	'use strict';
 
-	$scope.test = "HELLO!!";
+	var self = this;
 
-	console.log('Up and running!');
-
+	this.test = "HELLO!!";
 }
 
-MainCtrl.$inject = ['$rootScope', '$scope'];
+MainCtrl.$inject = [];
 
 module.exports = MainCtrl;

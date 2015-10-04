@@ -3,7 +3,8 @@ function homeRoutes($stateProvider) {
 
 	var home = {
 		name: 'home',
-		url: '/',
+		parent: 'main',
+		url: '^/',
 		template: '<div home-view></div>',
 		data: {
 			moduleClasses: 'page',
