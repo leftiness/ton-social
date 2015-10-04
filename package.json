@@ -20,12 +20,13 @@
 		]
 	},
 	"scripts": {
-		"build:dev": "npm-run-all clean:dev -p copy:* bundle:* -p start watch:*",
-		"build:prod": "npm-run-all clean:prod -p copy:* vendor:* bundle:*",
+		"build:dev": "npm-run-all clean:fast -p copy:* bundle:* -p start watch:*",
+		"build:full": "npm-run-all build:prod -p start watch:*",
+		"build:prod": "npm-run-all clean:full -p copy:* vendor:* bundle:*",
 		"bundle:js": "sh ./bin/bundle-js.sh",
 		"bundle:css": "lessc ./app/app.less ./dist/app.css",
-		"clean:dev": "find ./dist/* ! -name 'vendor.*' | xargs rm",
-		"clean:prod": "rm -rf ./dist/*",
+		"clean:fast": "find ./dist/* ! -name 'vendor.*' | xargs rm",
+		"clean:full": "rm -rf ./dist/*",
 		"copy:index": "cp ./app/index.html ./dist/index.html",
 		"start": "node server.js",
 		"vendor:css": "sh ./bin/vendor-css.sh",
