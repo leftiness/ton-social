@@ -19,6 +19,6 @@ do
 	CONCAT="$CONCAT -x $BOWER$each"
 done
 
-CMD="browserify ./app/app.js -o ./dist/bundle.js $CONCAT"
+CMD="browserify ./app/app.coffee -o ./dist/bundle.js $CONCAT"
 
 eval $CMD
