@@ -4,8 +4,11 @@ DEPS=(
 	'font-awesome/css/font-awesome.css'
 	'angular-material/angular-material.css'
 )
+CONCAT=''
 
 for each in "${DEPS[@]}"
 do
-	cat $BOWER$each > ./dist/vendor.css
+	CONCAT="$CONCAT $BOWER$each"
 done
+
+cat $CONCAT > ./dist/vendor.css
