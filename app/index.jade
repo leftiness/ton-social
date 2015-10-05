@@ -12,6 +12,7 @@ html(ng-app="myApp")
 	body(ng-class="bodyClasses", ng-controller="MainCtrl", layout="row")
 		common-sidenav
 		div(layout="column", flex)
+			common-header
 			div(layout="column")
 				md-content(flex)
 					div#ui-view(ui-view, autoscroll="false", layout-padding, layout-margin)

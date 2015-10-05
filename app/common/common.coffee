@@ -20,5 +20,6 @@ module.exports = angular.module "common", [
 		"restangular"
 		"ngMaterial"
 		require("./constants/index.coffee").name
+		require("./elements/header/index.coffee").name
 		require("./elements/sidenav/index.coffee").name
 	]
