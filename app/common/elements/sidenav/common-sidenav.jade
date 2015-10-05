@@ -1,0 +1,16 @@
+md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="sidenav",
+	md-is-locked-open="$mdMedia('gt-lg')"
+	)
+	md-toolbar(layout="row")
+		md-button(aria-label="[Profile]" hide-gt-lg ng-click="nav.viewProfile()")
+			md-icon(md-font-icon="fa fa-at fa-2x")
+		h2 {{nav.user}}
+	md-content
+		md-list(layout="column")
+			md-list-item(ng-repeat="item in nav.items", layout="row")
+				md-button(flex, ui-sref="{{item.sref}}", ui-sref-active="md-primary"
+					aria-label="[{{item.name}}]"
+					)
+					md-item-content
+						.md-tile-content(layout="row", layout-align="start center").
+							{{item.name}}
