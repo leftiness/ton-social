@@ -1,5 +1,5 @@
 HeaderCtrl = ($mdSidenav) ->
-	"use strict";
+	"use strict"
 	self = this
 	self.alerts = 0
 	self.toggleMenu = ->
