@@ -1,14 +1,12 @@
-HeaderCtrl = ($mdSidenav, $mdMedia) ->
+HeaderCtrl = ($mdSidenav, $mdMedia, LoginService) ->
 	"use strict"
 	self = this
-	self.alerts = 0
 	self.toggleMenu = ->
 		$mdSidenav("sidenav").toggle()
-	self.viewAlerts = ->
-		self.alerts += 1 #Obviously not the real function
 	self.$mdMedia = $mdMedia
+	self.login = LoginService
 	self
 
-HeaderCtrl.$inject = ["$mdSidenav", "$mdMedia"]
+HeaderCtrl.$inject = ["$mdSidenav", "$mdMedia", "LoginService"]
 
 module.exports = HeaderCtrl
