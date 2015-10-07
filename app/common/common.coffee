@@ -22,4 +22,5 @@ module.exports = angular.module "common", [
 		require("./constants/index.coffee").name
 		require("./elements/header/index.coffee").name
 		require("./elements/sidenav/index.coffee").name
+		require("./services/index.coffee").name
 	]
