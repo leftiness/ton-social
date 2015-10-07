@@ -2,9 +2,11 @@ md-sidenav.md-sidenav-left(md-component-id="sidenav",
 	md-is-locked-open="nav.$mdMedia('gt-lg')"
 	)
 	md-toolbar(layout="row", ng-class="{headerSpacing: nav.$mdMedia('gt-lg')}")
-		md-button(aria-label="[Profile]" ng-click="nav.viewProfile()")
+		md-button(aria-label="[Profile]" 
+			ui-sref="{{nav.getProfileButtonSref()}}"
+			)
 			md-icon(md-font-icon="fa fa-at fa-2x")
-		h2 {{nav.user}}
+		h2 {{nav.login.user.name || "Anon"}}
 	md-content
 		md-list(layout="column")
 			md-list-item(ng-repeat="item in nav.items", layout="row")
@@ -12,5 +14,4 @@ md-sidenav.md-sidenav-left(md-component-id="sidenav",
 					aria-label="[{{item.name}}]"
 					)
 					md-item-content
-						.md-tile-content(layout="row", layout-align="start center").
-							{{item.name}}
+						.md-tile-content {{item.name}}
