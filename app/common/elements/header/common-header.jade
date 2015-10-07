@@ -1,4 +1,4 @@
-md-toolbar(layout="row")
+md-toolbar(layout="row", ng-class="{headerSpacing: header.$mdMedia('gt-lg')}")
 	md-button(aria-label="[Menu]" hide-gt-lg ng-click="header.toggleMenu()")
 		md-icon(md-font-icon="fa fa-bars fa-2x")
 	md-button(aria-label="[Alerts]" ng-click="header.viewAlerts()")

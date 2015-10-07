@@ -1,4 +1,4 @@
-SidenavCtrl = ->
+SidenavCtrl = ($mdMedia) ->
 	"use strict"
 	self = this
 	self.items = [
@@ -12,8 +12,9 @@ SidenavCtrl = ->
 	self.user = "leftiness"
 	self.viewProfile = ->
 		alert self.user #Obviously not the real function
+	self.$mdMedia = $mdMedia
 	self
 
-SidenavCtrl.$inject = []
+SidenavCtrl.$inject = ["$mdMedia"]
 
 module.exports = SidenavCtrl
