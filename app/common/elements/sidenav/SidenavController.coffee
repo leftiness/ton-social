@@ -1,4 +1,4 @@
-SidenavCtrl = ($mdMedia, LoginService) ->
+SidenavCtrl = ($mdMedia, $state, LoginService) ->
 	"use strict"
 	self = this
 	self.items = [
@@ -11,12 +11,17 @@ SidenavCtrl = ($mdMedia, LoginService) ->
 	]
 	self.$mdMedia = $mdMedia
 	self.login = LoginService
-	self.getProfileButtonSref = ->
+	self.clickProfileButton = ->
 		user = LoginService.user
-		if user then "profile({id: #{user.id}, view: 'posts'})"
-		else "login"
+		if user
+			params =
+				id: user.id
+				view: "posts"
+			$state.go("profile", params)
+		else
+			$state.go("login")
 	self
 
-SidenavCtrl.$inject = ["$mdMedia", "LoginService"]
+SidenavCtrl.$inject = ["$mdMedia", "$state", "LoginService"]
 
 module.exports = SidenavCtrl
