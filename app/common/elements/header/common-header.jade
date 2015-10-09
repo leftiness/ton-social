@@ -9,7 +9,7 @@ md-toolbar(layout="row", ng-class="{headerSpacing: header.$mdMedia('gt-lg')}")
 		)
 		md-icon(md-font-icon="fa fa-bell fa-2x") {{header.login.user.alerts}}
 	md-button(ng-show="!!header.login.user" ng-click="header.login.logout()" 
-		aria-label="[Logout]"
+		aria-label="[Logout]" ui-sref="login"
 		)
 		md-icon(md-font-icon="fa fa-power-off fa-2x")
 	md-button(ng-show="!!!header.login.user" ui-sref="login" aria-label="[Login]")
