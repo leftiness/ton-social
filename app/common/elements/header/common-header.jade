@@ -1,5 +1,7 @@
 md-toolbar(layout="row", ng-class="{headerSpacing: header.$mdMedia('gt-lg')}")
-	md-button(aria-label="[Menu]" hide-gt-lg ng-click="header.toggleMenu()")
+	md-button(aria-label="[Menu]" hide-gt-lg 
+		ng-click="header.$mdSidenav('sidenav').toggle()"
+		)
 		md-icon(md-font-icon="fa fa-bars fa-2x")
 	h2 {{pageTitle}}
 	md-button(ng-show="!!header.login.user" aria-label="[Alerts]"

@@ -1,8 +1,7 @@
 HeaderCtrl = ($mdSidenav, $mdMedia, LoginService) ->
 	"use strict"
 	self = this
-	self.toggleMenu = ->
-		$mdSidenav("sidenav").toggle()
+	self.$mdSidenav = $mdSidenav
 	self.$mdMedia = $mdMedia
 	self.login = LoginService
 	self
