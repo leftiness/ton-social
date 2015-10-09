@@ -17,9 +17,9 @@ SidenavCtrl = ($mdMedia, $state, LoginService) ->
 			params =
 				id: user.id
 				view: "posts"
-			$state.go("profile", params)
+			$state.go "profile", params
 		else
-			$state.go("login")
+			$state.go "login"
 	self
 
 SidenavCtrl.$inject = ["$mdMedia", "$state", "LoginService"]
