@@ -12,9 +12,6 @@ LoginService = ($state) ->
 	self.logout = ->
 		# Obviously not the real function
 		self.user = undefined
-	toast = (message) ->
-		obj =
-			content: message
 	self
 
 LoginService.$inject = ["$state"];
