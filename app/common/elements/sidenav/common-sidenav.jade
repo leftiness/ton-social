@@ -1,15 +1,17 @@
-md-sidenav.md-sidenav-left(md-component-id="sidenav",
+md-sidenav.md-sidenav-left.md-whiteframe-1dp(md-component-id="sidenav"
 	md-is-locked-open="nav.$mdMedia('gt-lg')"
 	)
-	md-toolbar(layout="row", ng-class="{headerSpacing: nav.$mdMedia('gt-lg')}")
-		md-button(aria-label="[Profile]" ng-click="nav.clickProfileButton()")
-			md-icon(md-font-icon="fa fa-at fa-2x")
-		h2 {{nav.login.user.name || "Anon"}}
+	md-toolbar.md-whiteframe-1dp.md-toolbar-tools#sidenav-toolbar(layout="row")
+		md-button.md-icon-button.md-primary(aria-label="[Profile]" 
+			ng-click="nav.clickProfileButton()"
+			)
+			md-icon(md-font-icon="fa fa-user fa-lg")
+		h2(layout-margin layout-padding) {{nav.login.user.name || "Anon"}}
 	md-content
 		md-list(layout="column")
-			md-list-item(ng-repeat="item in nav.items", layout="row")
-				md-button(flex, ui-sref="{{item.sref}}", ui-sref-active="md-primary"
+			md-list-item(ng-repeat="item in nav.items" layout="row")
+				md-button(flex="" ui-sref="{{item.sref}}" ui-sref-active="md-primary" 
 					aria-label="[{{item.name}}]"
 					)
-					md-item-content
+					#sidenav-item.md-item-content(layout="row" layout-align="start center")
 						.md-tile-content {{item.name}}
