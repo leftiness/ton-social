@@ -10,7 +10,13 @@ md-card(layout="column" layout-margin layout-padding flex="")
 		md-checkbox(ng-model="login.remember" aria-label="[Remember me]" flex="")
 			label(layout-margin layout-padding) Remember me
 		span(layout="row" layout-sm="column" flex="")
-			md-button.md-raised.md-primary(ng-click="login.login()" flex="") Log in
-			md-button.md-raised.md-primary(ng-click="login.signup()" flex="") Sign up
+			md-button.md-raised.md-primary(type="submit" ng-click="login.login()" 
+				flex=""
+				)
+				div Log in
+			md-button.md-raised.md-primary(type="button" ng-click="login.signup()" 
+				flex=""
+				)
+				div Sign up
 	div(layout="row" layout-align-gt-sm="end center" flex="") 
 		md-button(ng-click="login.forgot()") Forgot your password? 
