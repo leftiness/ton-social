@@ -7,7 +7,7 @@ SidenavCtrl = ($mdMedia, $state, LoginService) ->
 			sref: "home"
 		_ =
 			name: "About"
-			sref: "pages.about"
+			sref: "about"
 	]
 	self.$mdMedia = $mdMedia
 	self.login = LoginService

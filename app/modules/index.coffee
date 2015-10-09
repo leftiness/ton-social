@@ -1,6 +1,6 @@
 module.exports = angular.module "modules", [
 		require("./home/index.coffee").name
-		require("./pages/index.coffee").name
+		require("./about/index.coffee").name
 		require("./login/index.coffee").name
 	]
 	.config require "./mainRoutes.coffee"
