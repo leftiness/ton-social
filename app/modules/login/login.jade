@@ -1,6 +1,16 @@
-.modules-login-view
-	.module-header
-		h1 Login
-		p {{login.testVar}}
-		md-button.md-raised.md-primary(ng-click="login.login('leftiness', '12345')").
-			Todo Log in!
+md-card(layout="column" layout-margin layout-padding flex="")
+	h4(flex="") Welcome back!
+	form
+		md-input-container(flex="")
+			label Username
+			input(ng-model="login.username" ng-required="true")
+		md-input-container(flex="")
+			label Password
+			input(ng-model="login.password" type="password" ng-required="true")
+		md-checkbox(ng-model="login.remember" aria-label="[Remember me]" flex="")
+			label(layout-margin layout-padding) Remember me
+		span(layout="row" layout-sm="column" flex="")
+			md-button.md-raised.md-primary(ng-click="login.login()" flex="") Log in
+			md-button.md-raised.md-primary(ng-click="login.signup()" flex="") Sign up
+	div(layout="row" layout-align-gt-sm="end center" flex="") 
+		md-button(ng-click="login.forgot()") Forgot your password? 

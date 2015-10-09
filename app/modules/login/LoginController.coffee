@@ -1,9 +1,15 @@
 LoginCtrl = (LoginService) ->
 	"use strict"
 	self = this
-	self.testVar = "Var from LoginCtrl"
-	self.login = (username, password) ->
-		LoginService.login(username, password)
+	self.username = undefined
+	self.password = undefined
+	self.remember = undefined
+	self.login = ->
+		LoginService.login(self.username, self.password, self.remember)
+	self.signup = ->
+		alert "Sign up"
+	self.forgot = ->
+		alert "Recover account"
 	self
 
 LoginCtrl.$inject = ["LoginService"]

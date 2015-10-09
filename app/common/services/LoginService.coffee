@@ -1,17 +1,22 @@
-LoginService = ->
+LoginService = ($state) ->
 	self = this
 	self.user = undefined
-	self.login = (username, password) ->
+	self.login = (username, password, remember) ->
 		# Obviously not the real function
-		self.user =
-			id: 1
-			name: "Brandon"
-			alerts: 5
+		if username and password
+			self.user =
+				id: 1
+				name: username
+				alerts: 5
+			$state.go("home")
 	self.logout = ->
 		# Obviously not the real function
 		self.user = undefined
+	toast = (message) ->
+		obj =
+			content: message
 	self
 
-LoginService.$inject = [];
+LoginService.$inject = ["$state"];
 
 module.exports = LoginService;
