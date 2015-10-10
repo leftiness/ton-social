@@ -1,9 +1,7 @@
 #!/bin/bash
 BOWER='./bower_components/'
-DEPS=(
-	'font-awesome/css/font-awesome.css'
-	'angular-material/angular-material.css'
-)
+DEPS[0]='font-awesome/css/font-awesome.css'
+DEPS[1]='angular-material/angular-material.css'
 CONCAT=''
 
 for each in "${DEPS[@]}"
