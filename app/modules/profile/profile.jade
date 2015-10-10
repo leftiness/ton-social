@@ -1,19 +1,24 @@
 span#pictureContainer
 	md-card
 		img#bigPicture.md-card-image(ng-src="{{profile.bigPicture}}")
-		md-card-content(ng-show="!!profile.login.user.token || profile.$mdMedia('gt-sm')")
+		md-card-content(ng-hide="profile.$mdMedia('sm')")
 			div.md-actions(layout="row" layout-align="end center")
-				div(ng-show="profile.$mdMedia('gt-sm')" layout="row")
-					md-button Posts
-					md-button Media
-				md-button.md-icon-button(aria-label="[Like]" ng-click="profile.like()"
-					ng-show="!!profile.login.user.token"
+				md-button.md-icon-button(aria-label="[Friends]" 
+					ng-click="profile.viewFriends()"
 					)
-					md-icon(md-font-icon="fa fa-heart fa-lg") 
-				md-button.md-icon-button(aria-label="[Message]"
-					ng-click="profile.message()" ng-show="!!profile.login.user.token"
+					md-icon(md-font-icon="fa fa-user fa-lg") {{profile.friends}} 
+				md-button.md-icon-button(aria-label="[Groups]"
+					ng-click="profile.viewGroups()"
 					)
-					md-icon(md-font-icon="fa fa-comments fa-lg")
+					md-icon(md-font-icon="fa fa-users fa-lg") {{profile.groups}}
+				md-button.md-icon-button(aria-label="[Posts]"
+					ng-click="profile.viewPosts()"
+					)
+					md-icon(md-font-icon="fa fa-comments fa-lg") {{profile.posts}}
+				md-button.md-icon-button(aria-label="[Photos]"
+					ng-click="profile.viewPhotos()"
+					)
+					md-icon(md-font-icon="fa fa-picture-o fa-lg") {{profile.photos}}
 	span(layout="row")
 		md-card#smallPicture
 			span(layout-padding)
