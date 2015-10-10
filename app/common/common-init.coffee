@@ -7,6 +7,7 @@ commonInit = ($rootScope, $state) ->
 			$rootScope.pageTitle = toState.data.pageTitle
 			$rootScope.pageDescription = toState.data.pageDescription
 			$rootScope.bodyClasses = toState.data.moduleClasses + ' ' + toState.data.pageClasses
+			$rootScope.hasActions = toState.data.hasActions
 
 	$rootScope.$on "$viewContentLoaded", ->
 		if (document.readyState is "complete")

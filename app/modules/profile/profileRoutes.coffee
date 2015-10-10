@@ -10,6 +10,7 @@ profileRoutes = ($stateProvider) ->
 			pageClasses: "profile"
 			pageTitle: "Profile"
 			pageDescription: "Meta Description goes here"
+			hasActions: true
 
 	$stateProvider.state profile
 
