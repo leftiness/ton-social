@@ -1,0 +1,21 @@
+md-card(layout="column" layout-margin layout-padding flex="")
+	h4(flex="") Welcome!
+	form(name="form" ng-submit="form.$valid && signup.signup()")
+		md-input-container(flex="")
+			label Username
+			input(ng-model="signup.username" ng-required="true")
+		md-input-container(flex="")
+			label Password
+			input(ng-model="signup.password" type="password" ng-required="true")
+		md-input-container(flex="")
+			label Confirm password
+			input(ng-model="signup.confirm" type="password" ng-required="true"
+				compare-to="signup.password"
+				)
+		md-input-container(flex="")
+			label Email
+			input(ng-model="signup.email" type="email" ng-required="true")
+		span(layout="row" layout-sm="column" flex="")
+			md-button.md-raised.md-primary(type="submit" flex="") Sign up
+	div(layout="row" layout-align-gt-sm="end center" flex="") 
+		md-button(ui-sref="login") Already have an account?

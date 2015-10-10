@@ -12,6 +12,10 @@ LoginService = ($state) ->
 	self.logout = ->
 		# Obviously not the real function
 		self.user = undefined
+	self.signup = (username, password, email) ->
+		# Obviously not the real function
+		if username and password and email
+			self.login username, password, false
 	self
 
 LoginService.$inject = ["$state"];
