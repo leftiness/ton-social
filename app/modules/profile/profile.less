@@ -1,0 +1,28 @@
+/* =======================================================================
+	Style References
+======================================================================= */
+@import (reference) "../../common/styles/custom_mixins.less";
+@import (reference) "../../common/styles/custom_variables.less";
+
+
+/* =======================================================================
+	Module Styles
+======================================================================= */
+#pictureContainer {
+	position: relative;
+
+	#bigPicture {
+		max-width: 100%;
+		max-height: 400px;
+	}
+
+	#smallPicture {
+		max-width: 200px;
+		max-height: 200px;
+		width: 40%;
+		height: auto;
+		position: absolute;
+		left: 5%;
+		bottom: -10%;
+	}
+}

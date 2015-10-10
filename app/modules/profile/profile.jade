@@ -1,0 +1,22 @@
+span#pictureContainer
+	md-card
+		img#bigPicture.md-card-image(ng-src="{{profile.bigPicture}}")
+		md-card-content(ng-show="!!profile.login.user.token || profile.$mdMedia('gt-sm')")
+			div.md-actions(layout="row" layout-align="end center")
+				div(ng-show="profile.$mdMedia('gt-sm')" layout="row")
+					md-button Posts
+					md-button Media
+				md-button.md-icon-button(aria-label="[Like]" ng-click="profile.like()"
+					ng-show="!!profile.login.user.token"
+					)
+					md-icon(md-font-icon="fa fa-heart fa-lg") 
+				md-button.md-icon-button(aria-label="[Message]"
+					ng-click="profile.message()" ng-show="!!profile.login.user.token"
+					)
+					md-icon(md-font-icon="fa fa-comments fa-lg")
+	span(layout="row")
+		md-card#smallPicture
+			span(layout-padding)
+				img(ng-src="{{profile.smallPicture}}")
+md-card(layout-margin layout-padding)
+	h2 {{profile.login.user.name}}
