@@ -1,8 +1,8 @@
-HomeCtrl = ->
+HomeCtrl = (LoginService) ->
 	"use strict"
 	self = this
-	self.testVar = "Var from HomeCtrl"
+	self.login = LoginService
 
-HomeCtrl.$inject = []
+HomeCtrl.$inject = ["LoginService"]
 
 module.exports = HomeCtrl
