@@ -12,7 +12,8 @@ SidenavCtrl = ($mdMedia, $state, LoginService) ->
 	self.$mdMedia = $mdMedia
 	self.login = LoginService
 	self.clickProfileButton = ->
-		if LoginService.user.token
+		user = LoginService.user
+		if user.token
 			params =
 				id: user.id
 				view: "posts"
