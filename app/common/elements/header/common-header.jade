@@ -5,14 +5,15 @@ md-toolbar.md-whiteframe-1dp.md-toolbar-tools(layout="row")
 		md-icon(md-font-icon="fa fa-bars fa-lg")
 	h2(layout-margin layout-padding) {{pageTitle}}
 	span(flex="")
-	md-button.md-icon-button(ng-show="!!header.login.user" aria-label="[Alerts]"
+	md-button.md-icon-button(ng-show="!!header.login.user.token" 
+		aria-label="[Alerts]"
 		ui-sref="profile({id: header.login.user.id, view: 'alerts'})" 
 		)
 		md-icon(md-font-icon="fa fa-bell fa-lg") {{header.login.user.alerts}}
 	md-button.md-icon-button(aria-label="[Logout]" ui-sref="login"
-		ng-click="header.login.logout()" ng-show="!!header.login.user")
+		ng-click="header.login.logout()" ng-show="!!header.login.user.token")
 		md-icon(md-font-icon="fa fa-power-off fa-lg")
 	md-button.md-icon-button(ui-sref="login" aria-label="[Login]"
-		ng-show="!!!header.login.user"
+		ng-show="!!!header.login.user.token"
 		)
 		md-icon(md-font-icon="fa fa-key fa-lg")

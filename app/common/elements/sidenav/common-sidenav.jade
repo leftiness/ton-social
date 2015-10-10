@@ -6,12 +6,14 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(md-component-id="sidenav"
 			ng-click="nav.clickProfileButton()"
 			)
 			md-icon(md-font-icon="fa fa-user fa-lg")
-		h2(layout-margin layout-padding) {{nav.login.user.name || "Anon"}}
+		h2(layout-margin layout-padding) {{nav.login.user.name}}
 	md-content
 		md-list(layout="column")
 			md-list-item(ng-repeat="item in nav.items" layout="row")
 				md-button(flex="" ui-sref="{{item.sref}}" ui-sref-active="md-primary" 
 					aria-label="[{{item.name}}]"
 					)
-					#sidenav-item.md-item-content(layout="row" layout-align="start center")
+					#sidenav-item.md-item-content(layout="row" 
+						layout-align="start center"
+						)
 						.md-tile-content {{item.name}}

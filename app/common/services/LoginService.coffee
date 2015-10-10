@@ -1,6 +1,7 @@
 LoginService = ($state) ->
 	self = this
-	self.user = undefined
+	self.user =
+		name: "Anon"
 	self.login = (username, password, remember) ->
 		# Obviously not the real function
 		if username and password
@@ -8,10 +9,13 @@ LoginService = ($state) ->
 				id: 1
 				name: username
 				alerts: 5
+				email: "ced@gmail.com"
+				token: 12345
 			$state.go("home")
 	self.logout = ->
 		# Obviously not the real function
-		self.user = undefined
+		self.user =
+			name: "Anon"
 	self.signup = (username, password, email) ->
 		# Obviously not the real function
 		if username and password and email
