@@ -1,6 +1,6 @@
 md-card(layout="column" layout-margin layout-padding flex="")
 	h4(flex="") Welcome back!
-	form
+	form(name="form" ng-submit="form.$valid && login.login()")
 		md-input-container(flex="")
 			label Username
 			input(ng-model="login.username" ng-required="true")
@@ -10,13 +10,8 @@ md-card(layout="column" layout-margin layout-padding flex="")
 		md-checkbox(ng-model="login.remember" aria-label="[Remember me]" flex="")
 			label(layout-margin layout-padding) Remember me
 		span(layout="row" layout-sm="column" flex="")
-			md-button.md-raised.md-primary(type="submit" ng-click="login.login()" 
-				flex=""
-				)
-				div Log in
-			md-button.md-raised.md-primary(type="button" ng-click="login.signup()" 
-				flex=""
-				)
-				div Sign up
+			md-button.md-raised.md-primary(type="submit" flex="") Log in
+			md-button.md-raised.md-primary(type="button" flex="" ui-sref="signup").
+				Sign up
 	div(layout="row" layout-align-gt-sm="end center" flex="") 
 		md-button(ng-click="login.forgot()") Forgot your password? 

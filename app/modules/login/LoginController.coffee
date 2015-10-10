@@ -5,9 +5,7 @@ LoginCtrl = (LoginService) ->
 	self.password = undefined
 	self.remember = undefined
 	self.login = ->
-		LoginService.login(self.username, self.password, self.remember)
-	self.signup = ->
-		alert "Sign up"
+		LoginService.login self.username, self.password, self.remember
 	self.forgot = ->
 		alert "Recover account"
 	self
