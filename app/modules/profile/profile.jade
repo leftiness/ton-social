@@ -1,8 +1,14 @@
-span#pictureContainer
+span
 	md-card
-		img#bigPicture.md-card-image(ng-src="{{profile.bigPicture}}")
-		md-card-content(ng-hide="profile.$mdMedia('sm')")
-			div.md-actions(layout="row" layout-align="end center")
+		span#pictureContainer
+			img#bigPicture.md-card-image(ng-src="{{profile.bigPicture}}")
+			md-card#smallPicture
+				span(layout-padding)
+					img(ng-src="{{profile.smallPicture}}")
+		md-card-content#actionBar
+			div.md-actions(layout="row" layout-align="end center"
+				ng-hide="profile.$mdMedia('sm')"
+				)
 				md-button.md-icon-button(aria-label="[Friends]" 
 					ng-click="profile.viewFriends()"
 					)
@@ -19,9 +25,5 @@ span#pictureContainer
 					ng-click="profile.viewPhotos()"
 					)
 					md-icon(md-font-icon="fa fa-picture-o fa-lg") {{profile.photos}}
-	span(layout="row")
-		md-card#smallPicture
-			span(layout-padding)
-				img(ng-src="{{profile.smallPicture}}")
 md-card(layout-margin layout-padding)
-	h2 {{profile.login.user.name}}
+	.md-card-content(flex="") Profile content
