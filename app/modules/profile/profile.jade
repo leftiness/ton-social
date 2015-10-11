@@ -1,10 +1,11 @@
 span
 	md-card
-		span#pictureContainer
-			img#bigPicture.md-card-image(ng-src="{{profile.bigPicture}}")
-			md-card#smallPicture
+		img#bigPicture.md-card-image(layout="row" ng-src="{{profile.bigPicture}}")
+		span#smallPicture(layout="row" layout-margin)
+			md-card(flex="")
 				span(layout-padding)
 					img(ng-src="{{profile.smallPicture}}")
+			span#name.md-title(flex="") {{profile.login.user.name}}
 		md-card-content#actionBar
 			div.md-actions(layout="row" layout-align="end center"
 				ng-hide="profile.$mdMedia('sm')"
@@ -25,5 +26,5 @@ span
 					ng-click="profile.viewPhotos()"
 					)
 					md-icon(md-font-icon="fa fa-picture-o fa-lg") {{profile.photos}}
-md-card(layout-margin layout-padding)
-	.md-card-content(flex="") Profile content
+	md-card(layout-margin layout-padding)
+		.md-card-content(flex="") Profile content
