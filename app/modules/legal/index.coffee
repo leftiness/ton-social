@@ -1,0 +1,4 @@
+module.exports = angular.module "modules.legal", []
+	.config require "./legalRoutes.coffee"
+	.directive "legalView", require "./legalDirective.coffee"
+	.controller "LegalCtrl", require "./LegalController.coffee"
