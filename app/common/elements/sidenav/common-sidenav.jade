@@ -1,5 +1,5 @@
-md-sidenav.md-sidenav-left.md-whiteframe-1dp(md-component-id="sidenav"
-	md-is-locked-open="nav.$mdMedia('gt-lg')"
+md-sidenav.md-sidenav-left.md-whiteframe-1dp(layout="column"
+	md-component-id="sidenav" md-is-locked-open="nav.$mdMedia('gt-lg')"
 	)
 	md-toolbar.md-whiteframe-1dp.md-toolbar-tools#sidenav-toolbar(layout="row")
 		md-button.md-icon-button.md-primary(aria-label="[Profile]" 
@@ -7,13 +7,13 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(md-component-id="sidenav"
 			)
 			md-icon(md-font-icon="fa fa-user fa-lg")
 		h2(layout-margin layout-padding) {{nav.login.user.name}}
-	md-content
-		md-list(layout="column")
+	md-content(layout="row" flex="")
+		md-list(layout="column" flex="")
 			md-list-item(ng-repeat="item in nav.items" layout="row")
 				md-button(flex="" ui-sref="{{item.sref}}" ui-sref-active="md-primary" 
 					aria-label="[{{item.name}}]"
 					)
-					#sidenav-item.md-item-content(layout="row" 
-						layout-align="start center"
-						)
+					md-item-content(layout="row" layout-align="start center")
 						.md-tile-content {{item.name}}
+	md-button(layout="row" layout-margin layout-padding ui-sref="legal")
+		span(layout="row" layout-align="start center") Legal
