@@ -19,4 +19,6 @@ done
 
 CMD="browserify ./app/app.coffee -o ./dist/bundle.js $CONCAT"
 
+mkdir -p ./dist
+touch ./dist/bundle.js
 eval $CMD

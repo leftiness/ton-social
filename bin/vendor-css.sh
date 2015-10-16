@@ -9,4 +9,6 @@ do
 	CONCAT="$CONCAT $BOWER$each"
 done
 
+mkdir -p ./dist
+touch ./dist/vendor.css
 cat $CONCAT > ./dist/vendor.css

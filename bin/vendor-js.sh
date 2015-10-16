@@ -19,4 +19,6 @@ done
 
 CMD="browserify $CONCAT -o ./dist/vendor.js"
 
+mkdir -p ./dist
+touch ./dist/vendor.js
 eval $CMD
