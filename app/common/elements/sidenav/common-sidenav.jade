@@ -12,6 +12,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(layout="column"
 			md-list-item(ng-repeat="item in nav.items" layout="row")
 				md-button(flex="" ui-sref="{{item.sref}}" ui-sref-active="md-primary" 
 					aria-label="[{{item.name}}]"
+					ng-click="nav.$mdSidenav('sidenav').close()"
 					)
 					md-item-content(layout="row" layout-align="start center")
 						.md-tile-content {{item.name}}
