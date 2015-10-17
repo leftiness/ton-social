@@ -22,23 +22,25 @@
 		]
 	},
 	"scripts": {
-		"build:dev": "npm-run-all clean:fast -p bundle:* -p start watch:*",
-		"build:full": "npm-run-all build:prod -p start watch:*",
-		"build:prod": "npm-run-all clean:full -p vendor:* bundle:*",
+		"build:dev": "bash ./bin/build-dev.sh",
+		"build:full": "bash ./bin/build-full.sh",
+		"build:prod": "bash ./bin/build-prod.sh",
 		"bundle:css": "bash ./bin/bundle-css.sh",
 		"bundle:index": "bash ./bin/bundle-index.sh",
 		"bundle:js": "bash ./bin/bundle-js.sh",
 		"bundle:server": "bash ./bin/bundle-server.sh",
 		"clean:fast": "bash ./bin/clean-fast.sh",
-		"clean:full": "rm -rf ./dist/*",
-		"postinstall": "bower install && npm run build:prod",
-		"start": "node ./dist/server.js",
+		"clean:full": "bash ./bin/clean-full.sh",
+		"postinstall": "bash ./bin/postinstall.sh",
+		"start": "bash ./bin/start.sh",
+		"stop": "bash ./bin/stop.sh",
 		"vendor:css": "bash ./bin/vendor-css.sh",
-		"vendor:fonts": "cp -r ./bower_components/font-awesome/fonts ./dist/fonts",
+		"vendor:fonts": "bash ./bin/vendor-fonts.sh",
 		"vendor:js": "bash ./bin/vendor-js.sh",
-		"watch:css": "onchange ./app/**/*.less -- npm run bundle:css",
-		"watch:index": "onchange ./app/index.jade -- npm run bundle:index",
-		"watch:js": "bash ./bin/watch-js.sh"
+		"watch:css": "bash ./bin/watch-css.sh",
+		"watch:index": "bash ./bin/watch-index.sh",
+		"watch:js": "bash ./bin/watch-js.sh",
+		"watch:server": "bash ./bin/watch-server.sh"
 	},
 	"devDependencies": {
 		"bower": "^1.6.2",
@@ -52,6 +54,7 @@
 		"less": "^2.5.3",
 		"npm-run-all": "^1.2.11",
 		"onchange": "^2.0.0",
+		"pm2": "^0.15.7",
 		"watchify": "^3.4.0"
 	},
 	"dependencies": {
