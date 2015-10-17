@@ -6,8 +6,6 @@ LoginCtrl = (LoginService) ->
 	self.remember = undefined
 	self.login = ->
 		LoginService.login self.username, self.password, self.remember
-	self.forgot = ->
-		alert "Recover account"
 	self
 
 LoginCtrl.$inject = ["LoginService"]
