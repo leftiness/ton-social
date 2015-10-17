@@ -6,6 +6,7 @@ module.exports = angular.module "modules", [
 		require("./profile/index.coffee").name
 		require("./legal/index.coffee").name
 		require("./recover/index.coffee").name
+		require("./download/index.coffee").name
 	]
 	.config require "./mainRoutes.coffee"
 	.controller "MainCtrl", require "./MainController.coffee"

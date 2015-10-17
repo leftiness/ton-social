@@ -8,6 +8,9 @@ SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
 		_ =
 			name: "About"
 			sref: "about"
+		_ =
+			name: "Download"
+			sref: "download"
 	]
 	self.$mdMedia = $mdMedia
 	self.$mdSidenav = $mdSidenav
