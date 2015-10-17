@@ -21,6 +21,7 @@ SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
 			$state.go "profile", params
 		else
 			$state.go "login"
+		$mdSidenav("sidenav").close()
 	self
 
 SidenavCtrl.$inject = ["$mdMedia", "$mdSidenav", "$state", "LoginService"]
