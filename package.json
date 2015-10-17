@@ -2,7 +2,7 @@
 	"name": "ton-social",
 	"version": "0.0.1",
 	"description": "ton-social is a site!",
-	"main": "server.js",
+	"main": "main.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/leftiness/ton-social"
@@ -28,11 +28,14 @@
 		"bundle:css": "bash ./bin/bundle-css.sh",
 		"bundle:index": "bash ./bin/bundle-index.sh",
 		"bundle:js": "bash ./bin/bundle-js.sh",
+		"bundle:main": "bash ./bin/bundle-main.sh",
 		"bundle:server": "bash ./bin/bundle-server.sh",
 		"clean:fast": "bash ./bin/clean-fast.sh",
 		"clean:full": "bash ./bin/clean-full.sh",
 		"postinstall": "bash ./bin/postinstall.sh",
+		"restart:dev": "bash ./bin/restart-dev.sh",
 		"start": "bash ./bin/start.sh",
+		"start:dev": "bash ./bin/start-dev.sh",
 		"stop": "bash ./bin/stop.sh",
 		"vendor:css": "bash ./bin/vendor-css.sh",
 		"vendor:fonts": "bash ./bin/vendor-fonts.sh",
@@ -54,10 +57,10 @@
 		"less": "^2.5.3",
 		"npm-run-all": "^1.2.11",
 		"onchange": "^2.0.0",
-		"pm2": "^0.15.7",
 		"watchify": "^3.4.0"
 	},
 	"dependencies": {
-		"express": "^4.13.3"
+		"express": "^4.13.3",
+		"pm2": "^0.15.7"
 	}
 }

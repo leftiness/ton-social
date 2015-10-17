@@ -1,2 +1,2 @@
 #!/bin/bash
-onchange ./server.coffee -- npm run bundle:server && npm restart &
+onchange ./server.coffee -- npm-run-all bundle:server restart:dev &
