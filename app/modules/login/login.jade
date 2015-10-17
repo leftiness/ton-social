@@ -11,7 +11,6 @@ md-card(layout="column" layout-margin layout-padding flex="")
 			label(layout-margin layout-padding) Remember me
 		span(layout="row" layout-sm="column" flex="")
 			md-button.md-raised.md-primary(type="submit" flex="") Log in
-			md-button.md-raised.md-primary(type="button" flex="" ui-sref="signup").
-				Sign up
-	div(layout="row" layout-align-gt-sm="end center" flex="") 
-		md-button(ng-click="login.forgot()") Forgot your password? 
+	div(layout="row" layout-align-gt-sm="end center" flex="")
+		md-button(ui-sref="signup" flex="") Sign up
+		md-button(ui-sref="recover" flex="") Recover

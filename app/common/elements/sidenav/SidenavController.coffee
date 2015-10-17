@@ -1,4 +1,4 @@
-SidenavCtrl = ($mdMedia, $state, LoginService) ->
+SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
 	"use strict"
 	self = this
 	self.items = [
@@ -10,6 +10,7 @@ SidenavCtrl = ($mdMedia, $state, LoginService) ->
 			sref: "about"
 	]
 	self.$mdMedia = $mdMedia
+	self.$mdSidenav = $mdSidenav
 	self.login = LoginService
 	self.clickProfileButton = ->
 		user = LoginService.user
@@ -22,6 +23,6 @@ SidenavCtrl = ($mdMedia, $state, LoginService) ->
 			$state.go "login"
 	self
 
-SidenavCtrl.$inject = ["$mdMedia", "$state", "LoginService"]
+SidenavCtrl.$inject = ["$mdMedia", "$mdSidenav", "$state", "LoginService"]
 
 module.exports = SidenavCtrl
