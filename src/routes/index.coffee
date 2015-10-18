@@ -1,6 +1,5 @@
 routes = [
-	require "./ping.js"
-	require "./pong.js"
+	require "./login.js"
 ]
 
 module.exports = routes

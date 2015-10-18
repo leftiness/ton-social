@@ -14,7 +14,7 @@ port = process.env.PORT || 5000
 router = express.Router()
 
 routes.forEach (route) ->
-	router.get route.path, route.fn
+	router[route.verb] route.path, route.fn
 
 app.use "/assets", express.static "#{__dirname}/assets"
 app.use express.static __dirname
