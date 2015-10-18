@@ -28,7 +28,6 @@
 		"bundle:css": "bash ./bin/bundle-css.sh",
 		"bundle:index": "bash ./bin/bundle-index.sh",
 		"bundle:js": "bash ./bin/bundle-js.sh",
-		"bundle:main": "bash ./bin/bundle-main.sh",
 		"bundle:server": "bash ./bin/bundle-server.sh",
 		"clean:fast": "bash ./bin/clean-fast.sh",
 		"clean:full": "bash ./bin/clean-full.sh",
@@ -60,6 +59,7 @@
 		"watchify": "^3.4.0"
 	},
 	"dependencies": {
+		"body-parser": "^1.14.1 ",
 		"express": "^4.13.3",
 		"pm2": "^0.15.7"
 	}
