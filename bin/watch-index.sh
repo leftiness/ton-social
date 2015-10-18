@@ -1,2 +1,2 @@
 #!/bin/bash
-onchange ./app/index.jade -- npm run bundle:index &
+onchange ./src/app/index.jade -- npm run bundle:index &

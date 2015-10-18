@@ -6,5 +6,5 @@ module.exports = angular.module "ton-social", [
 	]
 	.config require "./appConfig.coffee"
 	.config require "./restangularConfig.coffee"
-	.constant "version", require("../package.json").version
+	.constant "version", require("../../package.json").version
 	.run require "./common/common-init.coffee"

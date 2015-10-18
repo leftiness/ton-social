@@ -1,2 +1,2 @@
 #!/bin/bash
-onchange ./app/**/*.less -- npm run bundle:css &
+onchange ./src/app/**/*.less -- npm run bundle:css &
