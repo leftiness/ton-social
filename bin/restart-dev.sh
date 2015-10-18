@@ -1,3 +1,3 @@
 #!/bin/bash
-pm2 kill
+npm run stop:dev
 npm run start:dev

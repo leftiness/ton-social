@@ -36,6 +36,7 @@
 		"start": "bash ./bin/start.sh",
 		"start:dev": "bash ./bin/start-dev.sh",
 		"stop": "bash ./bin/stop.sh",
+		"stop:dev": "bash ./bin/stop-dev.sh",
 		"vendor:css": "bash ./bin/vendor-css.sh",
 		"vendor:fonts": "bash ./bin/vendor-fonts.sh",
 		"vendor:js": "bash ./bin/vendor-js.sh",
@@ -54,7 +55,7 @@
 		"jade": "^1.11.0",
 		"jadeify": "^4.4.0",
 		"less": "^2.5.3",
-		"npm-run-all": "^1.2.11",
+		"npm-run-all": "^1.2.12",
 		"onchange": "^2.0.0",
 		"watchify": "^3.4.0"
 	},
