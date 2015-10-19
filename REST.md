@@ -263,3 +263,11 @@ A dollar sign ($) represents data that will be provided.
 ```
 < No response data >
 ```
+
+# Timeout
+
+There will be an HTTP 504 response in the case of an external service timeout.
+
+```
+< No response data >
+```
