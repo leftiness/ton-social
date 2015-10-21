@@ -2,7 +2,6 @@ route =
 	verb: "post"
 	path: "/login"
 	fn: (req, res) ->
-		console.log req
 		username = req.body.username
 		password = req.body.password
 		remember = req.body.remember
