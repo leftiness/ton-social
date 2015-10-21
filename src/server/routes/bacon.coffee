@@ -12,13 +12,11 @@ route =
 		complete = (response) ->
 			json =
 				data: response.body
-			console.log response
 			res.status response.status
 				.send json
 		error = (error) ->
 			json =
 				reason: error.reason
-			console.log error
 			res.status error.status
 				.send json
 		service.request "get", "/", query
