@@ -35,18 +35,10 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > You are not logged in. Your request was invalid.
 
-```
-< No response data >
-```
-
 #### RES 401
 
 > **Server:**
 > You are not logged in. Your credentials are invalid.
-
-```
-< No response data >
-```
 
 # Logout
 
@@ -68,28 +60,16 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > Ok. You are now logged out. Your token is invalidated.
 
-```
-< No response data >
-```
-
 #### RES 400
 
 > **Server:**
 > You are not logged out. Your request was invalid.
-
-```
-< No response data >
-```
 
 #### RES 401
 
 > **Server:**
 > You provided me with an invalid token for that username.
 > You are not authenticated as that user, so you cannot log that user out.
-
-```
-< No response data >
-```
 
 # Settings
 
@@ -123,18 +103,10 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > You can't have any settings because your request is invalid.
 
-```
-< No response data >
-```
-
 #### RES 401
 
 > **Server:**
 > You can't have settings for that user. You aren't authenticated.
-
-```
-< No response data >
-```
 
 #### POST /api/settings
 
@@ -161,27 +133,15 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > Okay. Your settings are updated.
 
-```
-< No response data >
-```
-
 #### RES 400
 
 > **Server:**
 > I can't update your settings because your request is invalid.
 
-```
-< No response data >
-```
-
 #### RES 401
 
 > **Server:**
 > I can't update the settings for that user. You aren't authenticated.
-
-```
-< No response data >
-```
 
 # Password
 
@@ -205,27 +165,15 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > Okay. You've changed your password.
 
-```
-< No response data >
-```
-
 #### RES 400
 
 > **Server:**
 > You can't change the password. Your request is invalid.
 
-```
-< No response data >
-```
-
 #### RES 401
 
 > **Server:**
 > You can't change the password. You aren't authenticated.
-
-```
-< No response data >
-```
 
 # Signup
 
@@ -260,14 +208,38 @@ A dollar sign ($) represents data that will be provided.
 > **Server:**
 > I'm sorry. I can't sign you up because that request is invalid.
 
-```
-< No response data >
+# HTTP 200 OK
+
+There will be an HTTP 200 request in the case of a valid request. If the there
+is no response JSON specified, then there will be no other response data.
+
+# HTTP 400 Bad request
+
+There will be an HTTP 400 response in the case of a request which is invalid.
+
+```json
+{
+	"reason": "$"
+}
 ```
 
-# Timeout
+# HTTP 401 Unauthorized request
+
+There will be an HTTP 401 response in the case of a request which requires
+authentication but is not properly authenticated.
+
+```json
+{
+	"reason": "$"
+}
+```
+
+# HTTP 504 Gateway timeout
 
 There will be an HTTP 504 response in the case of an external service timeout.
 
-```
-< No response data >
+```json
+{
+	"reason": "$"
+}
 ```
