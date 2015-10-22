@@ -16,5 +16,9 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(layout="column"
 					)
 					md-item-content(layout="row" layout-align="start center")
 						.md-tile-content {{item.name}}
+	md-button(layout="row" layout-margin layout-padding ui-sref="settings"
+		ng-show="!!nav.login.user.token"
+		)
+		span(layout="row" layout-align="start center") Settings
 	md-button(layout="row" layout-margin layout-padding ui-sref="legal")
 		span(layout="row" layout-align="start center") Legal
