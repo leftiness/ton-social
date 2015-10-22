@@ -1,7 +1,7 @@
 routes = [
-	require "./login.js"
-	require "./teapot.js"
-	require "./bacon.js"
+	require "./post/login.js"
+	require "./get/teapot.js"
+	require "./get/bacon.js"
 ]
 
 module.exports = routes

@@ -1,5 +1,5 @@
-url = require("../common/constants.js").bacon
-service = (require "../common/RequestService.js") url
+url = require("../../common/constants.js").bacon
+service = (require "../../common/RequestService.js") url
 
 route =
 	verb: "get"
