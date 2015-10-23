@@ -11,11 +11,16 @@ routes =
 		service.request "post", "/settings"
 			.then complete, error
 		###
+		b = req.body
+		user =
+			username: b.username
+			token: b.token
+		settings =
+			name: b.name
+			surname: b.surname
+			email: b.email
 		json =
-			data:
-				name: req.body.name
-				surname: req.body.surname
-				email: req.body.email
+			data: settings
 		res.status(200).json json
 
 module.exports = routes
