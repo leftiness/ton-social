@@ -2,11 +2,13 @@ route =
 	verb: "post"
 	path: "/login"
 	fn: (req, res) ->
-		username = req.body.username
-		password = req.body.password
-		remember = req.body.remember
+		b = req.body
+		user =
+			username: b.username
+			password: b.password
+			remember: b.remember
 		# Obviously this is not the final function
-		if username == "error"
+		if user.username == "error"
 			# Why does 400 need json.reason when 200 needs json.data.token?
 			json =
 				reason: "Dummy error response"
