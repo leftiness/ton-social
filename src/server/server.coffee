@@ -6,8 +6,6 @@ bodyParser = require "body-parser"
 routes = require "./routes/index.js"
 
 app = express()
-parserConf =
-	extended: true
 options =
 	root: __dirname
 port = process.env.PORT || 5000
@@ -18,7 +16,6 @@ routes.forEach (route) ->
 
 app.use "/assets", express.static "#{__dirname}/assets"
 app.use express.static __dirname
-app.use bodyParser.urlencoded parserConf
 app.use bodyParser.json()
 
 app.use "/api", router
