@@ -20,10 +20,9 @@ LoginService = ($state, $mdToast, Restangular, SettingsService) ->
 		json =
 			username: json.username
 			password: json.password
-			remember: json.remember # TODO Implement remember me functionality
+			remember: json.remember
 		okLogin = (res) ->
 			self.user["username"] = json.username
-			self.user["alerts"] = 5 # TODO Move alerts to an alertservice
 			$state.go("home")
 			self.attempts = 0
 			SettingsService.getSettings()
@@ -34,9 +33,8 @@ LoginService = ($state, $mdToast, Restangular, SettingsService) ->
 			$mdToast.show toast
 		rest.post(json).then okLogin, koLogin
 	self.logout = ->
-		# Obviously not the real function
+		self.user = {}
 	self.signup = (username, password, email) ->
-		# Obviously not the real function
 		if username and password and email
 			self.login username, password, false
 	self

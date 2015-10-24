@@ -7,9 +7,9 @@ md-toolbar.md-whiteframe-1dp.md-toolbar-tools(layout="row")
 	span(flex="")
 	md-button.md-icon-button(ng-show="!!header.login.user.username" 
 		aria-label="[Alerts]"
-		ui-sref="profile({id: header.login.user.id, view: 'alerts'})" 
+		ui-sref="profile({id: header.login.user.username, view: 'alerts'})" 
 		)
-		md-icon(md-font-icon="fa fa-bell fa-lg") {{header.login.user.alerts}}
+		md-icon(md-font-icon="fa fa-bell fa-lg") {{header.alerts.alerts.length}}
 	md-button.md-icon-button(aria-label="[Logout]" ui-sref="login"
 		ng-click="header.login.logout()" ng-show="!!header.login.user.username")
 		md-icon(md-font-icon="fa fa-power-off fa-lg")
