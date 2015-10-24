@@ -22,18 +22,7 @@ A dollar sign ($) represents data that will be provided.
 #### RES 200
 
 > **Server:**
-> You are logged in. Remember this token.
-
-```json
-{
-	"token": "$"
-}
-```
-
-#### RES 400
-
-> **Server:**
-> You are not logged in. Your request was invalid.
+> You are logged in. You now have a session cookie.
 
 #### RES 401
 
@@ -42,33 +31,20 @@ A dollar sign ($) represents data that will be provided.
 
 # Logout
 
-#### POST /api/logout
+#### GET /api/logout
 
 > **User:**
 > I would like to log out.
-> This token confirms that I am the person that I claim to be.
-
-```json
-{
-	"username": "$",
-	"token": "$"
-}
-```
+> Check my session cookie to confirm that I am logged in.
 
 #### RES 200
 
 > **Server:**
 > Ok. You are now logged out. Your token is invalidated.
 
-#### RES 400
-
-> **Server:**
-> You are not logged out. Your request was invalid.
-
 #### RES 401
 
 > **Server:**
-> You provided me with an invalid token for that username.
 > You are not authenticated as that user, so you cannot log that user out.
 
 # Settings
@@ -77,13 +53,7 @@ A dollar sign ($) represents data that will be provided.
 
 > **User:**
 > I would like to see my current settings.
-
-```json
-{
-	"username": "$",
-	"token": "$"
-}
-```
+> Check my session cookie to confirm that I am logged in.
 
 #### RES 200
 
@@ -98,11 +68,6 @@ A dollar sign ($) represents data that will be provided.
 }
 ```
 
-#### RES 400
-
-> **Server:**
-> You can't have any settings because your request is invalid.
-
 #### RES 401
 
 > **Server:**
@@ -111,8 +76,8 @@ A dollar sign ($) represents data that will be provided.
 #### POST /api/settings
 
 > **User:**
-> I would like to change my settings, please.
-> These are the settings that I want to change.
+> I would like to change these settings, please.
+> Check my session cookie to confirm that I am logged in.
 
 > **Note:**
 > Only the settings included will be updated.
@@ -120,8 +85,6 @@ A dollar sign ($) represents data that will be provided.
 
 ```json
 {
-	"username": "$",
-	"token": "$",
 	"name": "$",
 	"surname": "$",
 	"email": "$"
@@ -137,11 +100,12 @@ A dollar sign ($) represents data that will be provided.
 
 > **Server:**
 > I can't update your settings because your request is invalid.
+> This message contains the keys from your request which I didn't recognize.
 
 #### RES 401
 
 > **Server:**
-> I can't update the settings for that user. You aren't authenticated.
+> I can't update your settings because you aren't authenticated.
 
 # Password
 
@@ -152,8 +116,6 @@ A dollar sign ($) represents data that will be provided.
 
 ```json
 {
-	"username": "$",
-	"token": "$",
 	"old": "$",
 	"new": "$",
 	"confirm": "$"
@@ -169,11 +131,12 @@ A dollar sign ($) represents data that will be provided.
 
 > **Server:**
 > You can't change the password. Your request is invalid.
+> This message contains the keys from your request which I didn't recognize.
 
 #### RES 401
 
 > **Server:**
-> You can't change the password. You aren't authenticated.
+> You can't change your password. You aren't authenticated.
 
 # Signup
 
@@ -195,18 +158,13 @@ A dollar sign ($) represents data that will be provided.
 
 > **Server:**
 > Welcome to the great service!
-> We've logged you in for your convenience. Here's your token.
-
-```json
-{
-	"token": "$"
-}
-```
+> We've logged you in for your convenience, so you now have a session cookie.
 
 #### RES 400
 
 > **Server:**
 > I'm sorry. I can't sign you up because that request is invalid.
+> This message contains the keys from your request which I didn't recognize.
 
 # HTTP 200 OK
 
