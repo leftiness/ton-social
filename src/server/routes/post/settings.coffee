@@ -21,6 +21,6 @@ routes =
 			email: b.email
 		json =
 			data: settings
-		res.status(200).json json
+		res.status(200).send()
 
 module.exports = routes

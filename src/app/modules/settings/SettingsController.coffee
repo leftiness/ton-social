@@ -1,14 +1,13 @@
-SettingsCtrl = ->
+SettingsCtrl = (SettingsService) ->
 	"use strict"
 	self = this
-	self.settings =
-		name: ''
-		surname: ''
-		email: ''
+	self.settings = undefined
+	SettingsService.getSettings().then ->
+		self.settings = SettingsService.settings
 	self.submit = ->
-		console.log self.settings
+		SettingsService.postSettings self.settings
 	self
 
-SettingsCtrl.$inject = []
+SettingsCtrl.$inject = ["SettingsService"]
 
 module.exports = SettingsCtrl

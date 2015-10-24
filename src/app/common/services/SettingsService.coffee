@@ -1,10 +1,7 @@
-SettingsService = ($mdToast, Restangular, LoginService) ->
+SettingsService = ($mdToast, Restangular) ->
 	self = this
-	rest = Restangular.all "settings"
-	self.settings =
-		name: undefined
-		surname: undefined
-		email: undefined
+	rest = Restangular.one("settings")
+	self.settings = {}
 	self.getSettings = ->
 		okGet = (res) ->
 			self.settings = res.data
@@ -13,23 +10,23 @@ SettingsService = ($mdToast, Restangular, LoginService) ->
 				.content "Failed to get settings. Reason: #{res.data.reason}"
 				.position "top right"
 			$mdToast.show toast
-		user = LoginService.user
-		json =
-			username: user.username
-			token: user.token
-		rest.get(json).then okGet, koGet
+		rest.get().then okGet, koGet
 	self.postSettings = (json) ->
 		okPost = (res) ->
-			for own key, value of res.data
+			for own key, value of json
 				self.settings[key] = value
+			toast = $mdToast.simple()
+				.content "Settings saved."
+				.position "top right"
+			$mdToast.show toast
 		koPost = (res) ->
 			toast = $mdToast.simple()
 				.content "Failed to post settings. Reason: #{res.data.reason}"
 				.position "top right"
 			$mdToast.show toast
-		rest.post(json).then okPost, koPost
+		rest.customPOST(json).then okPost, koPost
 	self
 
-SettingsService.$inject = ["$mdToast", "Restangular", "LoginService"];
+SettingsService.$inject = ["$mdToast", "Restangular"];
 
 module.exports = SettingsService;

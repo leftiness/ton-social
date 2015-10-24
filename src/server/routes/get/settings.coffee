@@ -12,9 +12,10 @@ routes =
 			.then complete, error
 		###
 		json =
-			name: "Brandon"
-			surname: "Parmenter"
-			email: "leftiness@gmail.com"
+			data:
+				name: "Brandon"
+				surname: "Parmenter"
+				email: "leftiness@gmail.com"
 		res.status(200).json json
 
 module.exports = routes
