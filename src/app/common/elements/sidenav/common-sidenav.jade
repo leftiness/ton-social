@@ -6,7 +6,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(layout="column"
 			ng-click="nav.clickProfileButton()"
 			)
 			md-icon(md-font-icon="fa fa-user fa-lg")
-		h2(layout-margin layout-padding) {{nav.login.user.name}}
+		h2(layout-margin layout-padding) {{nav.set.settings.name}}
 	md-content(layout="row" flex="")
 		md-list(layout="column" flex="")
 			md-list-item(ng-repeat="item in nav.items" layout="row")
@@ -17,7 +17,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-1dp(layout="column"
 					md-item-content(layout="row" layout-align="start center")
 						.md-tile-content {{item.name}}
 	md-button(layout="row" layout-margin layout-padding ui-sref="settings"
-		ng-show="!!nav.login.user.token"
+		ng-show="!!nav.login.user.username"
 		)
 		span(layout="row" layout-align="start center") Settings
 	md-button(layout="row" layout-margin layout-padding ui-sref="legal")

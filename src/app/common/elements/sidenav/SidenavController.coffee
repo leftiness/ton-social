@@ -1,4 +1,4 @@
-SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
+SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService, SettingsService) ->
 	"use strict"
 	self = this
 	self.items = [
@@ -15,9 +15,10 @@ SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
 	self.$mdMedia = $mdMedia
 	self.$mdSidenav = $mdSidenav
 	self.login = LoginService
+	self.set = SettingsService
 	self.clickProfileButton = ->
 		user = LoginService.user
-		if user.token
+		if user.username
 			params =
 				id: user.id
 				view: "posts"
@@ -27,6 +28,12 @@ SidenavCtrl = ($mdMedia, $mdSidenav, $state, LoginService) ->
 		$mdSidenav("sidenav").close()
 	self
 
-SidenavCtrl.$inject = ["$mdMedia", "$mdSidenav", "$state", "LoginService"]
+SidenavCtrl.$inject = [
+	"$mdMedia"
+	"$mdSidenav"
+	"$state"
+	"LoginService"
+	"SettingsService"
+]
 
 module.exports = SidenavCtrl

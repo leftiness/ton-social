@@ -1,7 +1,8 @@
 SettingsService = ($mdToast, Restangular) ->
 	self = this
 	rest = Restangular.one("settings")
-	self.settings = {}
+	self.settings =
+		name: "Anon"
 	self.getSettings = ->
 		okGet = (res) ->
 			self.settings = res.data

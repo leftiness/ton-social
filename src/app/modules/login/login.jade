@@ -3,11 +3,11 @@ md-card(layout="column" layout-margin layout-padding flex="")
 	form(name="form" ng-submit="form.$valid && login.login()")
 		md-input-container(flex="")
 			label Username
-			input(ng-model="login.username" ng-required="true")
+			input(ng-model="login.user.username" ng-required="true")
 		md-input-container(flex="")
 			label Password
-			input(ng-model="login.password" type="password" ng-required="true")
-		md-checkbox(ng-model="login.remember" aria-label="[Remember me]" flex="")
+			input(ng-model="login.user.password" type="password" ng-required="true")
+		md-checkbox(ng-model="login.user.remember" aria-label="[Remember me]" flex="")
 			label(layout-margin layout-padding) Remember me
 		span(layout="row" layout-sm="column" flex="")
 			md-button.md-raised.md-primary(type="submit" flex="") Log in

@@ -1,7 +1,6 @@
-LoginService = ($state, $mdToast, Restangular) ->
+LoginService = ($state, $mdToast, Restangular, SettingsService) ->
 	self = this
-	self.user =
-		name: "Anon"
+	self.user = {}
 	self.attempts = 0
 	self.attempt = ->
 		self.attempts += 1
@@ -14,23 +13,20 @@ LoginService = ($state, $mdToast, Restangular) ->
 				if res == "ok"
 					$state.go "recover"
 					self.attempts = 0
-	self.login = (username, password, remember) ->
-		if !!!username or !!!password
+	self.login = (json) ->
+		if !!!json.username or !!!json.password
 			return
 		rest = Restangular.all "login"
 		json =
-			username: username
-			password: password
-			remember: remember # TODO Implement remember me functionality
+			username: json.username
+			password: json.password
+			remember: json.remember # TODO Implement remember me functionality
 		okLogin = (res) ->
-			self.user =
-				username: username
-				name: "Ced" # TODO Move name into a userservice
-				alerts: 5 # TODO Move alerts to an alertservice
-				email: "ced@gmail.com" #TODO Move email into a userservice
-				token: res.data.token
+			self.user["username"] = json.username
+			self.user["alerts"] = 5 # TODO Move alerts to an alertservice
 			$state.go("home")
 			self.attempts = 0
+			SettingsService.getSettings()
 		koLogin = (res) ->
 			toast = $mdToast.simple()
 				.content "Failed to log in. Reason: #{res.data.reason}"
@@ -39,14 +35,12 @@ LoginService = ($state, $mdToast, Restangular) ->
 		rest.post(json).then okLogin, koLogin
 	self.logout = ->
 		# Obviously not the real function
-		self.user =
-			name: "Anon"
 	self.signup = (username, password, email) ->
 		# Obviously not the real function
 		if username and password and email
 			self.login username, password, false
 	self
 
-LoginService.$inject = ["$state", "$mdToast", "Restangular"];
+LoginService.$inject = ["$state", "$mdToast", "Restangular", "SettingsService"];
 
 module.exports = LoginService;
