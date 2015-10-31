@@ -1,10 +1,11 @@
-ProfileCtrl = ($mdMedia, LoginService, ActionsService) ->
+ProfileCtrl = ($mdMedia, LoginService, ActionsService, SettingsService) ->
 	"use strict"
 	self = this
 	self.bigPicture = "http://lorempixel.com/400/400/nature/"
 	self.smallPicture = "http://loremPixel.com/200/200/cats"
 	self.login = LoginService
 	self.$mdMedia = $mdMedia
+	self.set = SettingsService
 	self.friends = 5 # Fake
 	self.groups = 3 # Fake
 	self.posts = 22 # Fake
@@ -58,6 +59,11 @@ ProfileCtrl = ($mdMedia, LoginService, ActionsService) ->
 	]
 	self
 
-ProfileCtrl.$inject = ["$mdMedia", "LoginService", "ActionsService"]
+ProfileCtrl.$inject = [
+	"$mdMedia"
+	"LoginService"
+	"ActionsService"
+	"SettingsService"
+]
 
 module.exports = ProfileCtrl
