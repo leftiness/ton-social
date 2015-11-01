@@ -14,16 +14,10 @@ LoginService = ($state, $mdToast, Restangular, SettingsService) ->
 					$state.go "recover"
 					self.attempts = 0
 	self.login = (json) ->
-		if !!!json.username or !!!json.password
-			return
 		rest = Restangular.all "login"
-		json =
-			username: json.username
-			password: json.password
-			remember: json.remember
 		okLogin = (res) ->
 			self.user["username"] = json.username
-			$state.go("home")
+			$state.go "home"
 			self.attempts = 0
 			SettingsService.getSettings()
 		koLogin = (res) ->
@@ -34,9 +28,16 @@ LoginService = ($state, $mdToast, Restangular, SettingsService) ->
 		rest.post(json).then okLogin, koLogin
 	self.logout = ->
 		self.user = {}
-	self.signup = (username, password, email) ->
-		if username and password and email
-			self.login username, password, false
+	self.signup = (json) ->
+		rest = Restangular.all "signup"
+		okSignup = (res) ->
+			self.login json
+		koSignup = (res) ->
+			toast = $mdToast.simple()
+				.content "Failed to sign up. Reason: #{res.data.reason}"
+				.position "top right"
+			$mdToast.show toast
+		rest.post(json).then okSignup, koSignup
 	self
 
 LoginService.$inject = ["$state", "$mdToast", "Restangular", "SettingsService"];

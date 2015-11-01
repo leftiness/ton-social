@@ -1,12 +1,9 @@
 SignupController = (LoginService) ->
 	"use strict"
 	self = this
-	self.username = undefined
-	self.password = undefined
-	self.confirm = undefined
-	self.email = undefined
+	self.user = {}
 	self.signup = ->
-		LoginService.signup self.username, self.password, self.email
+		LoginService.signup self.user
 	self
 
 SignupController.$inject = ["LoginService"]
