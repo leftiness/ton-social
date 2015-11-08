@@ -2,26 +2,25 @@
 
 express = require "express"
 bodyParser = require "body-parser"
+httpProxy = require "http-proxy"
 
-routes = require "./routes/index.js"
+config = require "./config.json"
 
 app = express()
-options =
+port = process.env.PORT || config.port
+proxy = httpProxy.createProxyServer({target: config.hub})
+opt =
 	root: __dirname
-port = process.env.PORT || 5000
-router = express.Router()
 
-routes.forEach (route) ->
-	router[route.verb] route.path, route.fn
+app.use "/api", (req, res, next) ->
+	proxy.web req, res
 
 app.use "/assets", express.static "#{__dirname}/assets"
 app.use express.static __dirname
 app.use bodyParser.json()
 
-app.use "/api", router
-
 app.all "*", (req, res) ->
-	res.sendFile "index.html", options
+	res.sendFile "index.html", opt
 
 app.listen (port), ->
 	console.log "All systems are go! Port: #{port}"
